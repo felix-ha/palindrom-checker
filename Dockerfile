@@ -1,6 +1,6 @@
 FROM debian:buster
 
-ARG GO_VERSION=go1.19.5.linux-amd64.tar.gz
+ARG GO_VERSION=go1.21.1.linux-amd64.tar.gz
 
 RUN apt-get update && \
     apt-get install -y wget vim 
