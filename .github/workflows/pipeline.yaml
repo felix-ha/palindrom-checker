@@ -25,9 +25,6 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - name: Go init
-        run: go mod init file-server
-
       - name: Build
         run: go build -v ./...
 
