@@ -1,6 +1,6 @@
 FROM debian:buster
 
-ARG GO_VERSION=go1.21.1.linux-amd64.tar.gz
+ARG GO_VERSION=go1.19.5.linux-amd64.tar.gz
 
 RUN apt-get update && \
     apt-get install -y wget vim 
@@ -16,7 +16,6 @@ ENV PATH=$PATH:$GOROOT/bin
 WORKDIR /app
 
 COPY . .
-RUN go mod init palindromcheck
 RUN go test -v ./...
 RUN go build -o palindromcheck main.go
 ENV PATH=$PATH:/app
