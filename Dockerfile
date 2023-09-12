@@ -18,4 +18,6 @@ COPY . .
 RUN go test -v ./...
 RUN go build -o palindromcheck main.go
 ENV PATH=$PATH:/app
-CMD ["palindromcheck"]
+
+RUN chmod +x ./run.sh
+CMD ["./run.sh"]
