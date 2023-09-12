@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 )
 
@@ -16,9 +17,25 @@ func isPalindrome(s string) bool {
 	return true
 }
 
-func main() {
-	fmt.Println(isPalindrome("racecar"))
-	fmt.Println(isPalindrome("otto"))
+func isFlagPassed(name string) bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == name {
+			found = true
+		}
+	})
+	return found
+}
 
-	fmt.Println(isPalindrome("abc"))
+func main() {
+
+	s := flag.String("string", "", "String that will be checked if it is a palindrome")
+	flag.Parse()
+
+	if isFlagPassed("string") {
+		fmt.Println(isPalindrome(*s))
+	} else {
+		fmt.Println("Argument --string was not found.")
+	}
+
 }
