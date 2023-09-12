@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bookworm-slim
 
 ARG GO_VERSION=go1.21.1.linux-amd64.tar.gz
 
